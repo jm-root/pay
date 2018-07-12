@@ -3,23 +3,20 @@ let config = {
   development: {
     port: 3000,
     lng: 'zh_CN',
-    mqtt: 'mqtt://root:123@api.h5.jamma.cn',
     modules: {
       pay: {
         module: process.cwd() + '/lib'
-      },
-      'jm-pay-mqtt': {}
+      }
     }
   },
   production: {
     port: 80,
     lng: 'zh_CN',
-    db: 'mongodb://mongo.db/pay',
+    db: 'mongodb://mongo.db/main',
     modules: {
       'pay': {
         module: process.cwd() + '/lib'
-      },
-      'jm-pay-mqtt': {}
+      }
     }
   }
 }
@@ -27,7 +24,5 @@ let config = {
 let env = process.env.NODE_ENV || 'development'
 config = config[env] || config['development']
 config.env = env
-
-if (process.env['disableMQTT']) delete config.modules['jm-pay-mqtt']
 
 module.exports = config

@@ -18,6 +18,7 @@ const t = require('../locale')
 module.exports = function (opts = {}) {
   let db = opts.db
 
+  opts.channels || (opts.channels = [])
   let o = {
     ready: false,
     config: opts,

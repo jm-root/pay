@@ -1,8 +1,4 @@
-const o = require('./prepare')
-
-let expect = chai.expect
-
-let service = o.service
+const $ = require('./service')
 
 let pay = {
   orderId: 'test',
@@ -13,17 +9,14 @@ let pay = {
   content: 'test'
 }
 
-let log = (err, doc) => {
-  err && console.error(err.stack)
-}
+let service = null
+beforeAll(async () => {
+  await $.onReady()
+  service = $
+})
 
-describe('service', () => {
-  test('create pay', done => {
-    service.pay
-      .create(pay, function (err, doc) {
-        log(err, doc)
-        expect(err === null).to.be.ok
-        done()
-      })
-  })
+test('create pay', async () => {
+  let doc = await service.pay.create(pay)
+  console.log(doc)
+  expect(doc).toBeTruthy()
 })

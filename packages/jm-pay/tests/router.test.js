@@ -1,11 +1,14 @@
-const o = require('./prepare')
+const $ = require('./service')
 
-let expect = chai.expect
+let service = null
+let router = null
+beforeAll(async () => {
+  await $.onReady()
+  service = $
+  router = $.router()
+  service.config.channels = ['wechat']
+})
 
-let service = o.service
-let router = o.router
-
-service.config.ways = ['wechat']
 let payInfo = {
   channel: 'wechat',
   payer: '59648c53e366560a94e80bce',
@@ -19,22 +22,10 @@ let payInfo = {
   memo: '测试哟个'
 }
 
-let log = (err, doc) => {
-  err && console.error(err.stack)
-}
-
-describe('router', () => {
-  beforeAll(function (done) {
-    service.onReady().then(done)
-  })
-
-  test('pay create', done => {
-    router.post('/pays',
-      payInfo,
-      function (err, doc) {
-        log(err, doc)
-        expect(!err && !doc.err).to.be.ok
-        done()
-      })
+describe('router', async () => {
+  test('pay create', async () => {
+    let doc = await router.post('/pays', payInfo)
+    console.log(doc)
+    expect(doc).toBeTruthy()
   })
 })
