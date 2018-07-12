@@ -34,7 +34,7 @@ module.exports = function (service, opts = {}) {
 
   schema
     .post('save', function (doc) {
-      doc && (service.emit('pay.save', {id: doc.id}))
+      doc && (service.emit('pay.update', {id: doc.id}))
     })
     .post('remove', function (doc) {
       doc && (service.emit('pay.remove', {id: doc.id}))

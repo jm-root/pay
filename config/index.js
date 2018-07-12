@@ -3,24 +3,25 @@ var config = {
   development: {
     port: 3000,
     lng: 'zh_CN',
-    mqtt: 'mqtt://root:123@api.h5.jamma.cn',
+    gateway: 'http://gateway.test.jamma.cn',
     modules: {
       pay: {
         module: 'jm-pay',
         prefix: '/pay'
       },
-      'jm-pay-mqtt': {}
+      'jm-pay-mq': {}
     }
   },
   production: {
     port: 80,
-    lng: 'zh_CN',
     db: 'mongodb://mongo.db/pay',
+    gateway: 'http://gateway.app',
     modules: {
-      'jm-pay': {
+      pay: {
+        module: 'jm-pay',
         prefix: '/pay'
       },
-      'jm-pay-mqtt': {}
+      'jm-pay-mq': {}
     }
   }
 }
@@ -29,6 +30,6 @@ var env = process.env.NODE_ENV || 'development'
 config = config[env] || config['development']
 config.env = env
 
-if (process.env['disableMQTT']) delete config.modules['jm-pay-mqtt']
+if (process.env['disable_mq']) delete config.modules['jm-pay-mq']
 
 module.exports = config

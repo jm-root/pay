@@ -1,0 +1,25 @@
+{
+  "name": "jm-pay-mq",
+  "version": "1.0.0",
+  "description": "mq plugin for jm-pay",
+  "main": "./lib/index",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jm-root/pay.git"
+  },
+  "keywords": [
+    "javascript",
+    "jm-pay-mq"
+  ],
+  "author": {
+    "name": "Jeff YU"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jm-root/pay/issues"
+  },
+  "homepage": "https://github.com/jm-root/pay",
+  "dependencies": {
+    "jm-log4js": "^1.1.1"
+  }
+}
