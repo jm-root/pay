@@ -1,0 +1,43 @@
+{
+  "name": "jm-pay",
+  "version": "2.0.3",
+  "description": "general pay service",
+  "main": "./lib/index",
+  "scripts": {
+    "start": "jm-server",
+    "cluster": "jm-server --cluster",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jm-root/pay.git"
+  },
+  "keywords": [
+    "javascript",
+    "jm-pay"
+  ],
+  "author": {
+    "name": "Jeff YU"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jm-root/pay/issues"
+  },
+  "homepage": "https://github.com/jm-root/pay",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "esm": "^3.0.66",
+    "jm-dao": "^1.0.5",
+    "jm-ms-daorouter": "^1.0.0",
+    "jm-pay-mqtt": "^0.0.1",
+    "jm-server": "^1.0.5",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "validator": "^7.2.0"
+  },
+  "devDependencies": {
+    "benchmark": "^2.1.4",
+    "jest": "^22.4.3",
+    "matcha": "^0.7.0"
+  }
+}
