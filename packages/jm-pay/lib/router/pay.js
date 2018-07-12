@@ -1,13 +1,13 @@
-import _ from 'lodash'
-import validator from 'validator'
-import error from 'jm-err'
-import daorouter from 'jm-ms-daorouter'
-import MS from 'jm-ms-core'
+const _ = require('lodash')
+const validator = require('validator')
+const error = require('jm-err')
+const daorouter = require('jm-ms-daorouter')
+const MS = require('jm-ms-core')
 
 let ms = new MS()
 let Err = error.Err
 
-export default function (service, opts = {}) {
+module.exports = function (service, opts = {}) {
   let t = function (doc, lng) {
     if (doc && lng && doc.err && doc.msg) {
       return {
@@ -18,7 +18,7 @@ export default function (service, opts = {}) {
     return doc
   }
 
-  var listOpts = opts.list || {
+  let listOpts = opts.list || {
     conditions: {},
     options: {
       sort: [{'crtime': -1}]
@@ -36,7 +36,7 @@ export default function (service, opts = {}) {
     ]
   }
 
-  var getOpts = opts.get || {
+  let getOpts = opts.get || {
     fields: {},
     populations: [
       {
@@ -155,4 +155,4 @@ export default function (service, opts = {}) {
       }))
   })
   return router
-};
+}

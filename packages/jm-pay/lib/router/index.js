@@ -1,12 +1,12 @@
-import error from 'jm-err'
-import MS from 'jm-ms-core'
-import help from './help'
-import pay from './pay'
-import refund from './refund'
+const error = require('jm-err')
+const MS = require('jm-ms-core')
+const help = require('./help')
+const pay = require('./pay')
+const refund = require('./refund')
 
 let ms = new MS()
 let Err = error.Err
-export default function (opts = {}) {
+module.exports = function (opts = {}) {
   let service = this
   let t = function (doc, lng) {
     if (doc && lng && doc.err && doc.msg) {
@@ -34,4 +34,4 @@ export default function (opts = {}) {
       .use('/refunds', refund(service, opts))
   })
   return router
-};
+}

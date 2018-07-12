@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+const mongoose = require('mongoose')
 
 let Schema = mongoose.Schema
 
@@ -7,8 +7,8 @@ let schemaDefine = {
   name: {type: String} // 真实姓名
 }
 
-export default function (schema) {
+module.exports = function (schema) {
   schema || (schema = new Schema())
   schema.add(schemaDefine)
   return schema
-};
+}

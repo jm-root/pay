@@ -5,7 +5,8 @@ var config = {
     lng: 'zh_CN',
     mqtt: 'mqtt://root:123@api.h5.jamma.cn',
     modules: {
-      'jm-pay': {
+      pay: {
+        module: 'jm-pay',
         prefix: '/pay'
       },
       'jm-pay-mqtt': {}

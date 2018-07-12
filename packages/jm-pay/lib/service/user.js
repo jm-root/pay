@@ -1,8 +1,8 @@
-import jm from 'jm-dao'
-import event from 'jm-event'
-import _schema from '../schema/user'
+const jm = require('jm-dao')
+const event = require('jm-event')
+const _schema = require('../schema/user')
 
-export default function (service, opts = {}) {
+module.exports = function (service, opts = {}) {
   let schema = opts.schema || _schema()
 
   let model = jm.dao({
@@ -16,4 +16,4 @@ export default function (service, opts = {}) {
   event.enableEvent(model)
 
   return model
-};
+}

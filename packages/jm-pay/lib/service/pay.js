@@ -1,12 +1,12 @@
-// import moment from 'moment'
-import jm from 'jm-dao'
-import event from 'jm-event'
-import consts from '../consts'
-import _schema from '../schema/pay'
+// const moment = require('moment'
+const jm = require('jm-dao')
+const event = require('jm-event')
+const consts = require('../consts')
+const _schema = require('../schema/pay')
 
 let Err = consts.Err
 
-export default function (service, opts = {}) {
+module.exports = function (service, opts = {}) {
   let sq = service.sq
   let schema = opts.schema || _schema()
 
@@ -67,4 +67,4 @@ export default function (service, opts = {}) {
   event.enableEvent(model)
 
   return model
-};
+}

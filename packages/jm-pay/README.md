@@ -21,7 +21,7 @@
 ## use:
 
 ```javascript
-var s = require('jm-pay')();
+let s = require('jm-pay')();
 ```
 
 ## run:

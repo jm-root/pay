@@ -1,4 +1,4 @@
-import zh_CN from './zh_CN'
+const zh_CN = require('./zh_CN')
 
 let lngs = {
   zh_CN
@@ -10,7 +10,7 @@ let lngs = {
  * @param {string} lng - language
  * @return {String | null}
  */
-export default function (msg, lng) {
+module.exports = function (msg, lng) {
   if (!lng || !lngs[lng]) return null
   return lngs[lng][msg]
-};
+}

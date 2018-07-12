@@ -1,9 +1,9 @@
-import jm from 'jm-dao'
-import event from 'jm-event'
-import user from './user'
-import pay from './pay'
-import refund from './refund'
-import t from '../locale'
+const jm = require('jm-dao')
+const event = require('jm-event')
+const user = require('./user')
+const pay = require('./pay')
+const refund = require('./refund')
+const t = require('../locale')
 
 /**
  * pay service
@@ -15,7 +15,7 @@ import t from '../locale'
  * }
  * @return {Object} service
  */
-export default function (opts = {}) {
+module.exports = function (opts = {}) {
   let db = opts.db
 
   let o = {

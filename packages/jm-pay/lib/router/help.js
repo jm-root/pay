@@ -1,9 +1,9 @@
-import helper from 'jm-ms-help'
-import MS from 'jm-ms-core'
+const helper = require('jm-ms-help')
+const MS = require('jm-ms-core')
 const ms = new MS()
 
-export default function (service, opts) {
-  var router = ms.router()
+module.exports = function (service, opts) {
+  let router = ms.router()
   router.add('/', 'get', function (opts, cb, next) {
     opts.help || (opts.help = {})
     opts.help.status = 1

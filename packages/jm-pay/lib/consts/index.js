@@ -1,6 +1,6 @@
 let BaseErrCode = 1500
 
-export default {
+module.exports = {
   SequencePayCode: 'payCode',
   SequenceRefundCode: 'refundCode',
 

@@ -1,7 +1,7 @@
-import service from './service'
-import router from './router'
+const service = require('./service')
+const router = require('./router')
 
-export default (opts = {}) => {
+module.exports = (opts = {}) => {
   ['db', 'table_name_prefix']
     .forEach(function (key) {
       process.env[key] && (opts[key] = process.env[key])
