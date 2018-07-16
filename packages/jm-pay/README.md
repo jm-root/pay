@@ -37,7 +37,3 @@ npm start
 db [] mongodb服务器Uri
 
 table_name_prefix [''] 表名称前缀
-
-disable_mq [] 禁用MQ插件
-
-disable_mqtt [] 禁用MQTT插件

@@ -44,16 +44,25 @@ module.exports = function (service, opts = {}) {
     })
     .post('update', function (doc) {
       if (!doc.result.nModified) return
+      let status = this._update.$set.status
       this.model
         .find(this._conditions)
         .then(function (docs) {
           docs.forEach(function (doc) {
             service.emit('pay.update', {id: doc.id})
+            if (status !== undefined) {
+              service.emit('pay.status', {id: doc.id, status: status})
+            }
           })
         })
     })
     .post('findOneAndUpdate', function (doc) {
-      doc && (service.emit('pay.update', {id: doc.id}))
+      if (!doc) return
+      service.emit('pay.update', {id: doc.id})
+      let status = this._update.status
+      if (status !== undefined) {
+        service.emit('pay.status', {id: doc.id, status: status})
+      }
     })
 
   let model = jm.dao({

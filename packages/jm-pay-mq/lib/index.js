@@ -45,10 +45,22 @@ module.exports = function (opts, app) {
         logger.error(e)
       })
   }
+  pay.on('pay.status', function (opts) {
+    opts && (send('pay.status', opts))
+  })
   pay.on('pay.update', function (opts) {
     opts && (send('pay.update', opts))
   })
   pay.on('pay.remove', function (opts) {
     opts && (send('pay.remove', opts))
+  })
+  pay.on('refund.status', function (opts) {
+    opts && (send('refund.status', opts))
+  })
+  pay.on('refund.update', function (opts) {
+    opts && (send('refund.update', opts))
+  })
+  pay.on('refund.remove', function (opts) {
+    opts && (send('refund.remove', opts))
   })
 }
