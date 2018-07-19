@@ -35,6 +35,16 @@ module.exports = function (service, opts = {}) {
   let router = ms.router()
   service.onReady().then(() => {
     router
+      .add('/', 'get', function (opts, cb, next) {
+        opts.conditions || (opts.conditions = {})
+        if (opts.data.code) {
+          opts.conditions.code = opts.data.code
+        }
+        if (opts.data.pay) {
+          opts.conditions.pay = opts.data.pay
+        }
+        next()
+      })
       .use(daorouter(service.refund, {
         list: listOpts,
         get: getOpts
