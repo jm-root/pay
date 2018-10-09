@@ -112,6 +112,9 @@ module.exports = function (service, opts = {}) {
       })
       .add('/', 'get', function (opts, cb, next) {
         opts.conditions || (opts.conditions = {})
+        if (opts.data._id) {
+          opts.conditions._id = opts.data._id
+        }
         if (opts.data.code) {
           opts.conditions.code = opts.data.code
         }
